@@ -2,6 +2,7 @@ package litvinova08.employeecreator.employee;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 import javax.validation.constraints.NotBlank;
@@ -29,4 +30,28 @@ public class EmployeeService {
 	public List<Employee> getAll() {
 		return this.repository.findAll();
 	}
+	
+	//get an employee by id
+	public Optional<Employee> getById(Long id) {
+		return this.repository.findById(id);
+	}
+	
+	//delete an employee by id
+	public boolean deleteById(Long id) {
+		Optional<Employee> maybeEmployee = getById(id);
+		
+		if (maybeEmployee.isEmpty()) {
+			return false;
+		}
+		
+		else {
+			this.repository.deleteById(id);
+			return true;
+		}
+	}
+	
+	//update an existing employee
+//	public boolean update(EmployeeCreateDTO data, Long id) {
+//		this.repository.
+//	}
 }
