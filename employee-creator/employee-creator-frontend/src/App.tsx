@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
+import styles from "./App.module.scss";
 import "./App.css";
 import HomePage from "./containers/Home Page/HomePage";
 import EmployeePage from "./containers/EmployeePage/EmployeePage";
@@ -7,34 +8,31 @@ import CreateEmployee from "./containers/CreateEmployee/CreateEmployee";
 import EmployeeList from "./containers/EmployeeList/EmployeeList";
 import Nav from "./components/Nav/Nav";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { getAllUsers } from "./services/api";
+import axios from "axios";
 
 function App() {
-  // const [count, setCount] = useState(0);
+  const [employees, setEmployees] = useState([]);
 
-  // // const [emp, setEmp] = useState([]);
-  // //usestate to get the list of all products in store
-  // const [products, setProducts] = useState([]);
-
-  // //use Effect because product cards should be rendered when the page is opened the first time
-  // useEffect(() => {
-  //   const wrapper = async () => {
-  //     const allEmployees = await getAllUsers();
-  //     setProducts(allEmployees);
-  //     console.log("App use effect");
-  //   };
-  //   wrapper();
-  // }, []);
+  useEffect(() => {
+    axios.get("http://localhost:8080/employee").then((res) => {
+      const emps = res.data;
+      setEmployees(emps);
+      console.log(emps);
+    });
+  }, []);
 
   return (
-    <div className="App">
+    <div className={styles.App}>
       <BrowserRouter>
         <Nav />
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/employee" element={<EmployeeList />} />
+          {/* <Route path="/" element={<HomePage />} /> */}
+          <Route
+            path="/"
+            element={employees && <EmployeeList employees={employees} />}
+          />
           <Route path="/add-employee" element={<CreateEmployee />}></Route>
-          <Route path="/employees/:id" element={<EmployeePage />}></Route>
+          {/* <Route path="/employees/:id" element={<EmployeePage employees={employees} id={id} />}></Route> */}
         </Routes>
       </BrowserRouter>
     </div>

@@ -36,7 +36,7 @@ const CreateEmployee = () => {
 
     setIsPending(true);
 
-    fetch("http://localhost:8080/api/employee", {
+    fetch("http://localhost:8080/employee", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(newEmployee),
