@@ -22,8 +22,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/employee")
 @CrossOrigin(origins = "http://localhost:5173")
-@Validated
-
 public class EmployeeController {
 
 	@Autowired 
@@ -40,7 +38,7 @@ public class EmployeeController {
 	@GetMapping()
 	public ResponseEntity<List<Employee>> getAll() {	
 		List<Employee> allEmployees = this.service.getAll();
-		return new ResponseEntity<>(allEmployees, HttpStatus.OK);
+		return ResponseEntity.ok(allEmployees);
 	}
 
 
@@ -52,7 +50,7 @@ public class EmployeeController {
 		if (maybeEmployee.isEmpty()) {
 			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 		} else {
-			return new ResponseEntity<>(maybeEmployee.get(), HttpStatus.FOUND);
+			return ResponseEntity.ok(maybeEmployee.get());
 		}
 	}
 	
