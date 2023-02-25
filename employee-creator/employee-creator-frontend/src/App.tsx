@@ -30,6 +30,7 @@ function App() {
       <div className={styles.App}>
         <Header></Header>
         <BrowserRouter>
+          <Nav />
           <Routes>
             <Route path="/employee" element={<EmployeeList />} />
             <Route path="/add-employee" element={<CreateEmployee />}></Route>

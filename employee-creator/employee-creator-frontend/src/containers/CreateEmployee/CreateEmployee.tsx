@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import styles from "./CreateEmployee.module.scss";
 
 const CreateEmployee = () => {
   const [firstName, setFirstName] = useState("");
@@ -17,39 +19,70 @@ const CreateEmployee = () => {
 
   const [isPending, setIsPending] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newEmployee = {
-      firstName,
-      middleName,
-      lastName,
-      email,
-      phone,
-      address,
-      contract,
-      startDate,
-      finishDate,
-      ongoing,
-      basis,
-      hours,
-    };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const newEmployee = {
+  //     firstName,
+  //     middleName,
+  //     lastName,
+  //     email,
+  //     phone,
+  //     address,
+  //     contract,
+  //     startDate,
+  //     finishDate,
+  //     ongoing,
+  //     basis,
+  //     hours,
+  //   };
 
-    setIsPending(true);
+  //   setIsPending(true);
 
-    fetch("http://localhost:8080/employee", {
-      method: "POST",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify(newEmployee),
-    }).then(() => {
-      console.log("new employee added");
-      setIsPending(false);
-    });
-  };
+  // fetch("http://localhost:8080/employee", {
+  //   method: "POST",
+  //   headers: { "Content-type": "application/json" },
+  //   body: JSON.stringify(newEmployee),
+  // }).then(() => {
+  //   console.log("new employee added");
+  //   setIsPending(false);
+  // });
+  // };/
+
+  const { register, handleSubmit } = useForm();
 
   return (
     <div>
-      <h2>Add an Employee</h2>
-      <form onSubmit={handleSubmit}>
+      <h2 className={styles.Header}>Add an Employee</h2>
+
+      <form
+        onSubmit={handleSubmit((data) => {
+          fetch("http://localhost:8080/employee", {
+            method: "POST",
+            headers: { "Content-type": "application/json" },
+            body: JSON.stringify(data),
+          }).then(() => {
+            console.log("new employee added");
+            setIsPending(false);
+          });
+        })}
+      >
+        <input {...register("firstName")} placeholder="First Name" />
+        <input {...register("middleName")} placeholder="Middle Name" />
+        <input {...register("lastName")} placeholder="Last Name" />
+        <input {...register("email")} placeholder="Email" />
+        <input {...register("phone")} placeholder="Phone Number" />
+        <input {...register("address")} placeholder="Address" />
+        <input {...register("contract")} placeholder="Contract" />
+        <input {...register("startDate")} placeholder="Start Date" />
+        <input {...register("finishDate")} placeholder="Finish Date" />
+        <input {...register("ongoing")} placeholder="ongoing" />
+        <input {...register("basis")} placeholder="Basis" />
+        <input {...register("hours")} placeholder="hours" />
+
+        <input type="submit" />
+      </form>
+
+      {/* <form onSubmit={handleSubmit}>
         <label>First Name</label>
         <input
           type="text"
@@ -168,7 +201,7 @@ const CreateEmployee = () => {
 
         {!isPending && <button>Add Employee</button>}
         {isPending && <button disabled>Adding new Employee...</button>}
-      </form>
+      </form> */}
     </div>
   );
 };
