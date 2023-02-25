@@ -1,3 +1,9 @@
 .EmployeePage {
-  background-color: red;
+  margin: 15px 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-top: 1px lightgrey solid;
+  // max-width: 600px;
+  padding-top: 10px;
 }

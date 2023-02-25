@@ -1,0 +1,29 @@
+@import "../../assets/styles/palette.module.scss";
+
+.Employee {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid $lightGrey;
+  padding: 20px 0;
+  color: $lightGrey;
+  width: 50vw;
+
+  &__fullName {
+    font-weight: bold;
+    color: $fullNameColour;
+  }
+
+  &__button {
+    position: relative;
+    display: inline-flex;
+    text-decoration: underline;
+    font-weight: 600;
+    color: $blueButton;
+    border: none;
+    background: none;
+    padding: 0 10px;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,21 @@
+@import "../../assets/styles/palette.module.scss";
+
+.Instructions {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  color: $lightGrey;
+  width: 50vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button {
+  font-weight: 300;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  background: $blueButton;
+  padding: 0 30px;
+  cursor: pointer;
+}

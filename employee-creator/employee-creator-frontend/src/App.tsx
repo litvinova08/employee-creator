@@ -7,8 +7,11 @@ import EmployeePage from "./containers/EmployeePage/EmployeePage";
 import CreateEmployee from "./containers/CreateEmployee/CreateEmployee";
 import EmployeeList from "./containers/EmployeeList/EmployeeList";
 import Nav from "./components/Nav/Nav";
+import Header from "./components/Header/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
+
+// const baseUrl = "http://localhost:8080/employee";
 
 function App() {
   const [employees, setEmployees] = useState([]);
@@ -23,16 +26,15 @@ function App() {
 
   return (
     <div className={styles.App}>
+      <Header></Header>
       <BrowserRouter>
-        <Nav />
         <Routes>
-          {/* <Route path="/" element={<HomePage />} /> */}
           <Route
-            path="/"
+            path="/employee"
             element={employees && <EmployeeList employees={employees} />}
           />
           <Route path="/add-employee" element={<CreateEmployee />}></Route>
-          {/* <Route path="/employees/:id" element={<EmployeePage employees={employees} id={id} />}></Route> */}
+          <Route path="/employee/:id" element={<EmployeePage />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
