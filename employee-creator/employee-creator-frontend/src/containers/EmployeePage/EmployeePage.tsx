@@ -1,55 +1,41 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { IEmployee } from "../../interfaces/IEmployee";
+import { NavLink, useParams } from "react-router-dom";
 import styles from "./EmployeePage.module.scss";
-import cors from "cors";
-import app from "../../services/axios-configure";
+import { fetchById } from "../../services/getOne";
 
 const EmployeePage = () => {
   const { id } = useParams();
 
-  const [isLoading, setLoading] = useState(true);
-  const [employeeData, setEmployeeData] = useState({
-    firstName: "",
-    middleName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    address: "",
-    contract: "",
-    startDate: "",
-    finishDate: "",
-    ongoing: "",
-    basis: "",
-    hours: "",
-    id: "",
-  });
+  // if (id) {
+  const { isLoading, data, isError, error } = fetchById(id);
 
-  useEffect(() => {
-    app.get(`${id}`).then((res) => {
-      console.log(res.data);
-    });
-  }, []);
+  if (isLoading) {
+    return <h2>Loading...</h2>;
+  }
 
-  return employeeData ? (
+  return data ? (
     <div className={styles.EmployeePage}>
-      <p>{employeeData.firstName}</p>
-      <p>{employeeData.middleName}</p>
-      <p>{employeeData.lastName}</p>
-      <p>{employeeData.email}</p>
-      <p>{employeeData.phone}</p>
-      <p>{employeeData.address}</p>
-      <p>{employeeData.contract}</p>
-      <p>{employeeData.startDate}</p>
-      <p>{employeeData.finishDate}</p>
-      <p>{employeeData.ongoing}</p>
-      <p>{employeeData.basis}</p>
-      <p>{employeeData.hours}</p>
+      <NavLink to={`/employee/${data.id}`}>
+        <p>
+          {data.firstName} {data.lastName}
+        </p>
+      </NavLink>
+
+      <p>{data.firstName}</p>
+      <p>{data.middleName}</p>
+      <p>{data.lastName}</p>
+      <p>{data.email}</p>
+      <p>{data.phone}</p>
+      <p>{data.address}</p>
+      <p>{data.contract}</p>
+      <p>{data.startDate}</p>
+      <p>{data.finishDate}</p>
+      <p>{data.ongoing}</p>
+      <p>{data.basis}</p>
+      <p>{data.hours}</p>
       {/* /* <button onClick={handleDelete}>Delete an Employee</button> */}
     </div>
   ) : (
-    <div>Employy not found</div>
+    <div>Employee not found</div>
   );
 };
 

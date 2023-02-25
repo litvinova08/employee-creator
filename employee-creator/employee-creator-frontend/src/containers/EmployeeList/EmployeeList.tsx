@@ -5,22 +5,33 @@ import { useNavigate } from "react-router-dom";
 import { IEmployee } from "../../interfaces/IEmployee";
 import Employee from "../../components/Employee/Employee";
 import styles from "./EmployeeList.module.scss";
+import fetchAllEmployees from "../../services/axios-configure";
+import { useQuery } from "react-query";
 
-const EmployeeList = ({ employees }: { employees: IEmployee[] }) => {
-  const navigate = useNavigate();
+const EmployeeList = () => {
+  // allEmployees - query key
+  const { isLoading, data } = useQuery("allEmployees", fetchAllEmployees);
 
-  const routeChange = () => {
-    const createEmployeePath = "/add-employee";
-    navigate(createEmployeePath);
-  };
+  if (isLoading) return <h2>"Loading..."</h2>;
+
+  // const { isLoading, isError, data } = fetchAllEmployees();
+
+  // const navigate = useNavigate();
+  // const routeChange = () => {
+  //   const createEmployeePath = "/add-employee";
+  //   navigate(createEmployeePath);
+  // };
+
+  // if (isError) return "An error has occurred: " + isError;
 
   return (
     <div>
       <div className={styles.Instructions}>
         <p>Please click on "Edit" to find more details of each employee.</p>
-        <button onClick={routeChange}>Add Employee</button>
+        {/* <button onClick={routeChange}>Add Employee</button> */}
+        <button>Add Employee</button>
       </div>
-      {employees.map((employee: any) => {
+      {data.map((employee: any) => {
         return <Employee key={employee.id} employee={employee} />;
       })}
     </div>
