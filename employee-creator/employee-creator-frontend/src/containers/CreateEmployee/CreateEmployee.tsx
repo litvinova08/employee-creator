@@ -1,54 +1,27 @@
 import React from "react";
 import { useState } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import styles from "./CreateEmployee.module.scss";
+import DatePicker from "react-date-picker";
 
 const CreateEmployee = () => {
-  const [firstName, setFirstName] = useState("");
-  const [middleName, setMiddleName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
-  const [contract, setContract] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [finishDate, setFinishDate] = useState("");
-  const [ongoing, setOngoing] = useState("");
-  const [basis, setBasis] = useState("full-time");
-  const [hours, setHours] = useState("");
+  // const [firstName, setFirstName] = useState("");
+  // const [middleName, setMiddleName] = useState("");
+  // const [lastName, setLastName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [phone, setPhone] = useState("");
+  // const [address, setAddress] = useState("");
+  // const [contract, setContract] = useState("");
+  // const [startDate, setStartDate] = useState("");
+  // const [finishDate, setFinishDate] = useState("");
+  // const [ongoing, setOngoing] = useState("");
+  // const [basis, setBasis] = useState("full-time");
+  // const [hours, setHours] = useState("");
 
   const [isPending, setIsPending] = useState(false);
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const newEmployee = {
-  //     firstName,
-  //     middleName,
-  //     lastName,
-  //     email,
-  //     phone,
-  //     address,
-  //     contract,
-  //     startDate,
-  //     finishDate,
-  //     ongoing,
-  //     basis,
-  //     hours,
-  //   };
-
-  //   setIsPending(true);
-
-  // fetch("http://localhost:8080/employee", {
-  //   method: "POST",
-  //   headers: { "Content-type": "application/json" },
-  //   body: JSON.stringify(newEmployee),
-  // }).then(() => {
-  //   console.log("new employee added");
-  //   setIsPending(false);
-  // });
-  // };/
-
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, control } = useForm();
+  const [value, onChange] = useState(new Date());
 
   return (
     <div>
@@ -66,142 +39,73 @@ const CreateEmployee = () => {
           });
         })}
       >
-        <input {...register("firstName")} placeholder="First Name" />
-        <input {...register("middleName")} placeholder="Middle Name" />
-        <input {...register("lastName")} placeholder="Last Name" />
-        <input {...register("email")} placeholder="Email" />
-        <input {...register("phone")} placeholder="Phone Number" />
-        <input {...register("address")} placeholder="Address" />
-        <input {...register("contract")} placeholder="Contract" />
-        <input {...register("startDate")} placeholder="Start Date" />
-        <input {...register("finishDate")} placeholder="Finish Date" />
-        <input {...register("ongoing")} placeholder="ongoing" />
-        <input {...register("basis")} placeholder="Basis" />
-        <input {...register("hours")} placeholder="hours" />
+        <h3>Personal Information</h3>
+        <label>First Name</label>
+        <input {...register("firstName")} />
+        <label>Middle Name (if applicable)</label>
+        <input {...register("middleName")} />
+        <label>Last Name</label>
+        <input {...register("lastName")} />
+
+        <h3>Contact details</h3>
+        <label>Email address</label>
+        <input {...register("email")} />
+        <label>Mobile Number</label>
+        <p>Must be an Australian number</p>
+        <input {...register("phone")} placeholder="+61" />
+        <label>Residential address</label>
+        <p>Start typing to search</p>
+        <input
+          {...register("address")}
+          placeholder="123 Example Street, Sydney, NSW, 2000"
+        />
+        <h3>Contact details</h3>
+        <label>What is your contract type?</label>
+        <select {...register("contract")}>
+          <option value="permanent">Permanent</option>
+          <option value="contract">Contract</option>
+        </select>
+        <label>Start date</label>
+        <Controller
+          control={control}
+          name="startDate"
+          render={() => <DatePicker onChange={onChange} value={value} />}
+        />
+
+        {/* <input {...register("startDate")}> */}
+        {/* <DatePicker onChange={onChange} value={value} /> */}
+        {/* <DatePicker /> */}
+        {/* </input> */}
+
+        <label>Finish date</label>
+        <Controller
+          control={control}
+          name="finishDate"
+          render={() => <DatePicker onChange={onChange} value={value} />}
+        />
+
+        {/* check box for "ongoing" */}
+        {/* <Controller
+          name="ongoing"
+          control={control}
+          rules={{ required: true }}
+          render={({ field }) => <Checkbox {...field} />}
+        /> */}
+
+        <label>On going?</label>
+        <input {...register("ongoing")} />
+
+        <label>What is your contract type?</label>
+        <select {...register("basis")}>
+          <option value="fullTime">Full-time</option>
+          <option value="partTime">Part-time</option>
+        </select>
+
+        <label>Hours per week</label>
+        <input {...register("hours")} />
 
         <input type="submit" />
       </form>
-
-      {/* <form onSubmit={handleSubmit}>
-        <label>First Name</label>
-        <input
-          type="text"
-          required
-          value={firstName}
-          onChange={(e) => {
-            setFirstName(e.target.value);
-          }}
-        ></input>
-
-        <label>Middle Name</label>
-        <input
-          type="text"
-          // required
-          value={middleName}
-          onChange={(e) => {
-            setMiddleName(e.target.value);
-          }}
-        ></input>
-
-        <label>Last Name</label>
-        <input
-          type="text"
-          required
-          value={lastName}
-          onChange={(e) => {
-            setLastName(e.target.value);
-          }}
-        ></input>
-
-        <label>Email</label>
-        <input
-          type="text"
-          required
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        ></input>
-
-        <label>Phone Number</label>
-        <input
-          type="text"
-          required
-          value={phone}
-          onChange={(e) => {
-            setPhone(e.target.value);
-          }}
-        ></input>
-
-        <label>Address</label>
-        <input
-          type="text"
-          required
-          value={address}
-          onChange={(e) => {
-            setAddress(e.target.value);
-          }}
-        ></input>
-
-        <label>Contract</label>
-        <input
-          type="text"
-          required
-          value={contract}
-          onChange={(e) => {
-            setContract(e.target.value);
-          }}
-        ></input>
-
-        <label>Start Date</label>
-        <input
-          type="text"
-          required
-          value={startDate}
-          onChange={(e) => {
-            setStartDate(e.target.value);
-          }}
-        ></input>
-
-        <label>Finish Date</label>
-        <input
-          type="text"
-          required
-          value={finishDate}
-          onChange={(e) => {
-            setFinishDate(e.target.value);
-          }}
-        ></input>
-
-        <label>Ongoing</label>
-        <input
-          type="text"
-          required
-          value={ongoing}
-          onChange={(e) => {
-            setOngoing(e.target.value);
-          }}
-        ></input>
-
-        <label>Basis</label>
-        <select value={basis} onChange={(e) => setBasis(e.target.value)}>
-          <option value="full-time">Full-Time</option>
-          <option value="part-time">Part-Time</option>
-        </select>
-
-        <label>Hours</label>
-        <input
-          type="text"
-          required
-          value={hours}
-          onChange={(e) => {
-            setHours(e.target.value);
-          }}
-        ></input>
-
-        {!isPending && <button>Add Employee</button>}
-        {isPending && <button disabled>Adding new Employee...</button>}
-      </form> */}
     </div>
   );
 };

@@ -10,3 +10,11 @@ const fetchEmployee = (id: string) => {
 export const fetchById = (id: string) => {
   return useQuery(["getById", id], () => fetchEmployee(id));
 };
+
+export const deleteById = (id: string) => {
+  return useQuery(["deleteById", id], () => {
+    axios
+      .delete(`http://localhost:8080/employee/${id}`)
+      .then((res) => console.log(res));
+  });
+};
