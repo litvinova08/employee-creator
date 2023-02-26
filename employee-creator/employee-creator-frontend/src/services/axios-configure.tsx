@@ -1,11 +1,22 @@
 import { useQuery } from "react-query";
 import axios from "axios";
 
-export default function employeeData() {
-  return useQuery("allEmployeeData", () =>
-    axios.get("/employee").then((res) => res.data)
-  );
+export default function fetchAllEmployees() {
+  return axios.get("http://localhost:8080/employee").then((res) => res.data);
 }
+
+// export function fetchById(id: string) {
+//   return axios
+//     .get(`http://localhost:8080/employee${id}`)
+//     .then((res) => res.data);
+// }
+
+// export const fwtchEmployee = (onSuccess, onError) => {
+//   return useQuery("fetchEmployees", fetchAllEmployees, {
+//     onSuccess,
+//     onError,
+//   });
+// };
 
 // no
 

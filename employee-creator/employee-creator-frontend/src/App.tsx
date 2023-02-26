@@ -10,34 +10,35 @@ import Nav from "./components/Nav/Nav";
 import Header from "./components/Header/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
+import { QueryClientProvider, QueryClient } from "react-query";
 
-// const baseUrl = "http://localhost:8080/employee";
+const queryClient = new QueryClient();
 
 function App() {
-  const [employees, setEmployees] = useState([]);
+  // const [employees, setEmployees] = useState([]);
 
-  useEffect(() => {
-    axios.get("http://localhost:8080/employee").then((res) => {
-      const emps = res.data;
-      setEmployees(emps);
-      console.log(emps);
-    });
-  }, []);
+  // useEffect(() => {
+  //   axios.get("http://localhost:8080/employee").then((res) => {
+  //     const emps = res.data;
+  //     setEmployees(emps);
+  //     console.log(emps);
+  //   });
+  // }, []);
 
   return (
-    <div className={styles.App}>
-      <Header></Header>
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/employee"
-            element={employees && <EmployeeList employees={employees} />}
-          />
-          <Route path="/add-employee" element={<CreateEmployee />}></Route>
-          <Route path="/employee/:id" element={<EmployeePage />}></Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div className={styles.App}>
+        <Header></Header>
+        <BrowserRouter>
+          <Nav />
+          <Routes>
+            <Route path="/employee" element={<EmployeeList />} />
+            <Route path="/add-employee" element={<CreateEmployee />}></Route>
+            <Route path="/employee/:id" element={<EmployeePage />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </QueryClientProvider>
   );
 }
 
