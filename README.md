@@ -19,10 +19,11 @@ It provides a virtual DOM that can update in real-time, making it an ideal choic
 ## Compiling and running the app
 Clone the repo to your own device
 
-`git init`
-
-`git clone https://github.com/litvinova08/employee-creator.git`
-`cd employee-creator`
+```
+git init
+git clone https://github.com/litvinova08/employee-creator.git
+cd employee-creator
+```
 
 ### For Front-end
 open the frontend folder in Visual Studio Code or another code editor of your choice:
