@@ -18,7 +18,6 @@ It provides a virtual DOM that can update in real-time, making it an ideal choic
 
 ## Compiling and running the app
 Clone the repo to your own device
-
 ```
 git init
 git clone https://github.com/litvinova08/employee-creator.git
@@ -57,6 +56,39 @@ Run the app
 - You can Run the app by pressing the green play button or right clicking on gov.dcs.employeeslist and selecting > Run As > Java Application
 
 
+## Features
+- React axios to communicate with backend and make requests to an API. I used axios over fetch because it automatically converts a response to JSON
+and has clean syntax
+- React Hook Form to validate and submit forms and use Controlled components like `Controller` for dates
+- React Router for navigation and routing
+- React Date Picker to allow date input
+
+## Known issues
+since this is work in progress there are many growth zones and areas that need improvement. For example: 
+- there is no validation on backend so the user attempts to access a DB via API/Postman, no data will de validated
+- create Employee component still uses fetch to post a new employee to a database 
+- Delete Employee function is not available
+- no testing was implemented at this stage
+
+## Future Goals
+- Include delete employee method using axios
+- Add data validation on backend
+- In Create Employee component I will replace `fetch` with axios 
+- Add testing for both front-end and back-end. I will use JUnit for unit testing of the backend part, Enzyme for unit testing of the front-end part and e2e testing to ensuse that all components work together as required  
+- Implement responsive design to ensure that users can access the app either on their desktop or mobile
+- Deploy the app using Amazon service
+
+## What I struggle with
+26.02.2023 - I experienced a CORS error due to incorrect HttpStatus when a Controller returned an employee by Id 
+
+## Useful Resources
+
+- React Hook Forms: https://react-hook-form.com/get-started/ 
+- React Hook Form Controller: https://react-hook-form.com/api/usecontroller/controller
+- React Router: https://reactrouter.com/en/main 
+- React Date Picker: https://www.npmjs.com/package/react-datepicker 
+- JUnit: https://spring.io/guides/gs/testing-web/
+- Enzyme: https://enzymejs.github.io/enzyme/
 
 application.properties
 ```
