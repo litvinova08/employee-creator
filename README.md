@@ -17,8 +17,44 @@ It provides a virtual DOM that can update in real-time, making it an ideal choic
 - MySQL: MySQL provides robust data storage and retrieval capabilities.
 
 ## Compiling and running the app
-1. Clone the repo to your own device
+Clone the repo to your own device
 
-`git init
-git clone https://github.com/litvinova08/employee-creator.git
-cd employee-creator`
+`git init`
+`git clone https://github.com/litvinova08/employee-creator.git`
+`cd employee-creator`
+
+### For Front-end
+open the frontend folder in Visual Studio Code or another code editor of your choice:
+`cd employee-creator-frontend`
+
+install dependencies:
+`npm install`
+
+run the app:
+`npm run dev`
+
+Open the app in your browser: http://localhost:5173/ 
+
+### Set up a Database
+Set up a database using MySQL Workbench. Please, make sure that YOUR_MYSQL_DB_NAME is the same as the DB name in your application.properties file
+`CREATE DATABASE <YOUR_MYSQL_DB_NAME>`
+
+Use the database
+`USE <YOUR_MYSQL_DB_NAME>`
+
+### For Back-end
+Open the backend folder in Eclipse or another integrated development environment of your choice:
+- File > Import > Maven > Existing Maven Projects > Browse for the "employee-creator-backend" folder
+
+Run the app
+- You can Run the app by pressing the green play button or right clicking on gov.dcs.employeeslist and selecting > Run As > Java Application
+
+
+
+application.properties
+`spring.datasource.url=jdbc:mysql://localhost:3306/YOUR_MYSQL_DB_NAME`
+`spring.datasource.username=root`
+`spring.datasource.password=MyPass`
+`spring.jpa.hibernate.ddl-auto=update`
+`spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect`
+`spring.jpa.generate-ddl=true`
