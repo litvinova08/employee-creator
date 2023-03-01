@@ -26,26 +26,21 @@ cd employee-creator
 
 ### For Front-end
 open the frontend folder in Visual Studio Code or another code editor of your choice:
-
 `cd employee-creator-frontend`
 
 install dependencies:
-
 `npm install`
 
 run the app:
-
 `npm run dev`
 
 Open the app in your browser: http://localhost:5173/ 
 
 ### Set up a Database
 Set up a database using MySQL Workbench. Please, make sure that YOUR_MYSQL_DB_NAME is the same as the DB name in your application.properties file:
-
 `CREATE DATABASE <YOUR_MYSQL_DB_NAME>`
 
 Use the database:
-
 `USE <YOUR_MYSQL_DB_NAME>`
 
 ### For Back-end
@@ -57,6 +52,7 @@ Run the app
 
 
 ## Features
+- React app is running 
 - React axios to communicate with backend and make requests to an API. I used axios over fetch because it automatically converts a response to JSON
 and has clean syntax
 - React Hook Form to validate and submit forms and use Controlled components like `Controller` for dates
@@ -64,10 +60,10 @@ and has clean syntax
 - React Date Picker to allow date input
 
 ## Known issues
-since this is work in progress there are many growth zones and areas that need improvement. For example: 
+Since this is work in progress there are many growth zones and areas that need improvement. For example: 
 - there is no validation on backend so the user attempts to access a DB via API/Postman, no data will de validated
 - create Employee component still uses fetch to post a new employee to a database 
-- Delete Employee function is not available
+- delete Employee function is not available
 - no testing was implemented at this stage
 
 ## Future Goals
