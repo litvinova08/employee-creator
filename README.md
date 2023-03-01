@@ -79,7 +79,7 @@ Since this is work in progress there are many growth zones and areas that need i
 - Use Google's Place Autocomplete API to autocomplete an address when the user starts typing
 
 ## What I struggle with
-26.02.2023 - I experienced a CORS error due to incorrect HttpStatus when a Controller returned an employee by Id 
+26.02.2023 - I experienced a CORS error due to an incorrect HttpStatus when a Controller returned an employee by Id 
 
 ## Useful Resources
 
