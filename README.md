@@ -76,6 +76,7 @@ Since this is work in progress there are many growth zones and areas that need i
 - Implement responsive design to ensure that users can access the app on their desktop and mobile
 - Deploy the app using Amazon service
 - Update styling to ensure the app looks well
+- Use Google's Place Autocomplete API to autocomplete an address when the user starts typing
 
 ## What I struggle with
 26.02.2023 - I experienced a CORS error due to incorrect HttpStatus when a Controller returned an employee by Id 
@@ -89,6 +90,7 @@ Since this is work in progress there are many growth zones and areas that need i
 - Schema Validation: https://react-hook-form.com/get-started/#SchemaValidation
 - JUnit: https://spring.io/guides/gs/testing-web/
 - Enzyme: https://enzymejs.github.io/enzyme/
+- Google's Places Autocomplete API: https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete
 
 application.properties
 ```
