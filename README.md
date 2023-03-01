@@ -20,6 +20,7 @@ It provides a virtual DOM that can update in real-time, making it an ideal choic
 Clone the repo to your own device
 
 `git init`
+
 `git clone https://github.com/litvinova08/employee-creator.git`
 `cd employee-creator`
 
