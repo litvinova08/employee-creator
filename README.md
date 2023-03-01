@@ -27,21 +27,26 @@ cd employee-creator
 
 ### For Front-end
 open the frontend folder in Visual Studio Code or another code editor of your choice:
+
 `cd employee-creator-frontend`
 
 install dependencies:
+
 `npm install`
 
 run the app:
+
 `npm run dev`
 
 Open the app in your browser: http://localhost:5173/ 
 
 ### Set up a Database
-Set up a database using MySQL Workbench. Please, make sure that YOUR_MYSQL_DB_NAME is the same as the DB name in your application.properties file
+Set up a database using MySQL Workbench. Please, make sure that YOUR_MYSQL_DB_NAME is the same as the DB name in your application.properties file:
+
 `CREATE DATABASE <YOUR_MYSQL_DB_NAME>`
 
-Use the database
+Use the database:
+
 `USE <YOUR_MYSQL_DB_NAME>`
 
 ### For Back-end
@@ -54,9 +59,11 @@ Run the app
 
 
 application.properties
-`spring.datasource.url=jdbc:mysql://localhost:3306/YOUR_MYSQL_DB_NAME`
-`spring.datasource.username=root`
-`spring.datasource.password=MyPass`
-`spring.jpa.hibernate.ddl-auto=update`
-`spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect`
-`spring.jpa.generate-ddl=true`
+```
+spring.datasource.url=jdbc:mysql://localhost:3306/YOUR_MYSQL_DB_NAME
+spring.datasource.username=root
+spring.datasource.password=MyPass
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
+spring.jpa.generate-ddl=true
+```
