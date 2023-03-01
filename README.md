@@ -52,9 +52,9 @@ Run the app
 
 
 ## Features
-- React app is running 
 - React axios to communicate with backend and make requests to an API. I used axios over fetch because it automatically converts a response to JSON
 and has clean syntax
+- I included proxy on frontend and @CrossOrigin on backend to ensure that frontend and backend can communicate
 - React Hook Form to validate and submit forms and use Controlled components like `Controller` for dates
 - React Router for navigation and routing
 - React Date Picker to allow date input
@@ -64,15 +64,19 @@ Since this is work in progress there are many growth zones and areas that need i
 - there is no validation on backend so the user attempts to access a DB via API/Postman, no data will de validated
 - create Employee component still uses fetch to post a new employee to a database 
 - delete Employee function is not available
+- Edit employee function is not available
 - no testing was implemented at this stage
 
 ## Future Goals
 - Include delete employee method using axios
+- Include edit employee method using axios. When the user click "edit", they should see employee details and be able to update them
 - Add data validation on backend
+- Implement Schema Validation on frontend
 - In Create Employee component I will replace `fetch` with axios 
 - Add testing for both front-end and back-end. I will use JUnit for unit testing of the backend part, Enzyme for unit testing of the front-end part and e2e testing to ensuse that all components work together as required  
 - Implement responsive design to ensure that users can access the app either on their desktop or mobile
 - Deploy the app using Amazon service
+- Update styling to ensure the app looks well
 
 ## What I struggle with
 26.02.2023 - I experienced a CORS error due to incorrect HttpStatus when a Controller returned an employee by Id 
@@ -83,6 +87,7 @@ Since this is work in progress there are many growth zones and areas that need i
 - React Hook Form Controller: https://react-hook-form.com/api/usecontroller/controller
 - React Router: https://reactrouter.com/en/main 
 - React Date Picker: https://www.npmjs.com/package/react-datepicker 
+- Schema Validation: https://react-hook-form.com/get-started/#SchemaValidation
 - JUnit: https://spring.io/guides/gs/testing-web/
 - Enzyme: https://enzymejs.github.io/enzyme/
 
