@@ -1,17 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { IEmployee } from "../../interfaces/IEmployee";
 import { fetchById } from "../../services/getOne";
 import styles from "./Employee.module.scss";
 import { deleteById } from "../../services/getOne";
+import axios from "axios";
 
 const Employee = (
   { employee }: { employee: IEmployee },
-  { id }: { id: String }
+  { id }: { id: string }
 ) => {
-  // const delete = () => {
-  //   deleteById(id)
-  // }
+  // const [isDeleting, setIsDeleting] = useState(false);
+  // const [deleteError, setDeleteError] = useState<null>(null);
+
+  // const handleDelete = async () => {
+  //   try {
+  //     deleteById(id);
+  //     // await axios.delete(`/employee/${id}`);
+  //     // window.location.reload(); // reload the window to see the updates
+  //   } catch (error) {
+  //     console.log(error);
+  //     alert(`Something went wrong with deleting an employee: ${error}`);
+  //   }
+  // };
+
+  const handleDelete = () => {
+    return fetch(`http://localhost:8080/employee/${employee.id}`, {
+      method: "DELETE",
+    }).catch((error) => {
+      console.error("Error:", error);
+      throw error;
+    });
+  };
 
   return (
     <div className={styles.Employee}>
@@ -28,7 +48,9 @@ const Employee = (
       <div>
         <button className={styles.Employee__button}>Edit</button>
         <p className={styles.Employee__button}>|</p>
-        <button className={styles.Employee__button}>Remove</button>
+        <button className={styles.Employee__button} onClick={handleDelete}>
+          Remove
+        </button>
       </div>
     </div>
   );

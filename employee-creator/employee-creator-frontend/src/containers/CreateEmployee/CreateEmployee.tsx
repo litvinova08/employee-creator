@@ -5,19 +5,6 @@ import styles from "./CreateEmployee.module.scss";
 import DatePicker from "react-date-picker";
 
 const CreateEmployee = () => {
-  // const [firstName, setFirstName] = useState("");
-  // const [middleName, setMiddleName] = useState("");
-  // const [lastName, setLastName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [phone, setPhone] = useState("");
-  // const [address, setAddress] = useState("");
-  // const [contract, setContract] = useState("");
-  // const [startDate, setStartDate] = useState("");
-  // const [finishDate, setFinishDate] = useState("");
-  // const [ongoing, setOngoing] = useState("");
-  // const [basis, setBasis] = useState("full-time");
-  // const [hours, setHours] = useState("");
-
   const [isPending, setIsPending] = useState(false);
 
   const { register, handleSubmit, control } = useForm();
@@ -71,11 +58,6 @@ const CreateEmployee = () => {
           name="startDate"
           render={() => <DatePicker onChange={onChange} value={value} />}
         />
-
-        {/* <input {...register("startDate")}> */}
-        {/* <DatePicker onChange={onChange} value={value} /> */}
-        {/* <DatePicker /> */}
-        {/* </input> */}
 
         <label>Finish date</label>
         <Controller
