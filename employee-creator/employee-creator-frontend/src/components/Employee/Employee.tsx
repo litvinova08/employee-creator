@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { IEmployee } from "../../interfaces/IEmployee";
 import { fetchById } from "../../services/getOne";
 import styles from "./Employee.module.scss";
@@ -10,6 +10,11 @@ const Employee = (
   { employee }: { employee: IEmployee },
   { id }: { id: string }
 ) => {
+  const navigate = useNavigate();
+  const routeChange = () => {
+    navigate(`/employee/${employee.id}`);
+  };
+
   // const [isDeleting, setIsDeleting] = useState(false);
   // const [deleteError, setDeleteError] = useState<null>(null);
 
@@ -46,7 +51,9 @@ const Employee = (
         <p>{employee.email}</p>
       </div>
       <div>
-        <button className={styles.Employee__button}>Edit</button>
+        <button className={styles.Employee__button} onClick={routeChange}>
+          Edit
+        </button>
         <p className={styles.Employee__button}>|</p>
         <button className={styles.Employee__button} onClick={handleDelete}>
           Remove

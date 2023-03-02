@@ -1,7 +1,6 @@
-import React from "react";
+import styles from "./CreateEmployee.module.scss";
 import { useState } from "react";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
-import styles from "./CreateEmployee.module.scss";
 import DatePicker from "react-date-picker";
 
 const CreateEmployee = () => {
