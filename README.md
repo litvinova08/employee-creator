@@ -61,17 +61,17 @@ and has clean syntax
 ## Known issues
 Since this is work in progress there are many growth zones and areas that need improvement. For example: 
 - there is no validation on backend so if the user attempts to access a DB via API/Postman, no data will de validated
-- create Employee component still uses fetch to post a new employee to a database 
-- delete Employee function is not available
+- create Employee component still uses fetch to post a new employee to the database 
+- delete Employee function still uses fetch to delete an employee from the database. The page is not reloaded once the employee is deleted
 - Edit employee function is not available
 - no testing was implemented at this stage
 
 ## Future Goals
-- Include delete employee functionality using axios
 - Include edit employee functionality using axios. When the user click "edit", they should see employee details and be able to update them
 - Add data validation on backend
 - Implement Schema Validation on frontend
-- In Create Employee component I will replace `fetch` with axios 
+- Update create employee functionality with axios 
+- Update delete employee functionality with axios & ensure that the list of employees gets reloaded once an employee deleted
 - Add testing for both front-end and back-end. I will use JUnit for unit testing of the backend part, Enzyme for unit testing of the front-end part and e2e testing to ensuse that all components work together as required  
 - Implement responsive design to ensure that users can access the app on their desktop and mobile
 - Deploy the app using Amazon service
