@@ -51,7 +51,21 @@ public class EmployeeService {
 	}
 	
 	//update an existing employee
-//	public boolean update(EmployeeCreateDTO data, Long id) {
-//		this.repository.
-//	}
+	public boolean updateEmployee(EmployeeCreateDTO data, Long id) {
+		
+		Employee updatedEmployee = new Employee(data.getFirstName(), data.getMiddleName(), data.getLastName(),
+				data.getEmail(), data.getMobileNumber(), data.getAddress(), data.getContract(), data.getStartDate(),
+				data.getFinishDate(), data.isOngoing(), data.getBasis(), data.getHours());
+		
+		Optional <Employee> maybeEmployee = getById(id);
+		
+		if (maybeEmployee.isEmpty()) {
+			return false;
+		}
+		else {
+			updatedEmployee.setId(id);
+			this.repository.saveAndFlush(updatedEmployee);
+			return true;
+		}
+	}
 }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -48,11 +49,18 @@ public class EmployeeController {
 		Optional<Employee> maybeEmployee = this.service.getById(id);
 		
 		if (maybeEmployee.isEmpty()) {
-			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(null, HttpStatus.FOUND);
 		} else {
 			return ResponseEntity.ok(maybeEmployee.get());
 		}
 	}
+	
+	//update an employee
+	@PutMapping("/{id}")
+	public boolean updateEmployee(@PathVariable Long id, @RequestBody EmployeeCreateDTO updatedData) {
+		return this.service.updateEmployee(updatedData, id);
+	}
+	
 	
 	//delete an employee by id
 	@DeleteMapping("/{id}")
