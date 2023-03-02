@@ -16,19 +16,11 @@ const EmployeePage = () => {
   const { isLoading, data, isError, error } = fetchById(id);
 
   const { register, handleSubmit, control } = useForm({
-    defaultValues: {
-      firstName: data.firstName,
-      middleName: data.middleName,
-      lastName: data.lastName,
-      email: data.email,
-      phone: data.phone,
-      address: data.address,
-      contract: data.contract,
-      startDate: data.startDate,
-      finishDate: data.finishDate,
-      ongoing: data.ongoing,
-      basis: data.basis,
-      hours: data.hours,
+    defaultValues: async () => {
+      const response = await fetch(`http://localhost:8080/employee/${id}`);
+      const data = await response.json();
+      console.log(data);
+      return data;
     },
   });
 
@@ -45,16 +37,16 @@ const EmployeePage = () => {
       </NavLink>
 
       <form
-      // onSubmit={handleSubmit((data) => {
-      //   fetch("http://localhost:8080/employee", {
-      //     method: "POST",
-      //     headers: { "Content-type": "application/json" },
-      //     body: JSON.stringify(data),
-      //   }).then(() => {
-      //     console.log("new employee added");
-      //     setIsPending(false);
-      //   });
-      // })}
+        onSubmit={handleSubmit((data) => {
+          fetch(`http://localhost:8080/employee/${id}`, {
+            method: "PUT",
+            headers: { "Content-type": "application/json" },
+            body: JSON.stringify(data),
+          }).then(() => {
+            console.log(" employee updated");
+            setIsPending(false);
+          });
+        })}
       >
         <h3>Personal Information</h3>
         <label>First Name</label>
