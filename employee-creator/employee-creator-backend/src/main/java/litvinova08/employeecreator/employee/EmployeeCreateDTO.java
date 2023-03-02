@@ -10,12 +10,12 @@ import javax.validation.constraints.NotBlank;
 
 public class EmployeeCreateDTO {
 
-	@NotBlank
+//	@NotBlank
 	private String firstName;
 
 	private String middleName;
 
-	@NotBlank
+//	@NotBlank
 	private String lastName;
 
 	private String email;
