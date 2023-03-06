@@ -14,7 +14,7 @@ Spring Boot provides a variety of features that make it easy to build, test, and
 - **TypeScript** provides strong typing, making it easier to catch errors before they make it to production.
 - **SCSS** allows to easily nest styles and write complex selectors.
 - **MySQL** provides data storage and retrieval capabilities.
-- **AWS** to deploy backend part of the application
+- **AWS** to deploy the backend part of the application
 
 ## Compiling and running the app
 Clone the repo to your own device
@@ -66,10 +66,12 @@ Since this is work in progress there are many growth zones and areas that need i
 - delete Employee function still uses fetch to delete an employee from the database. The page is not reloaded once the employee is deleted
 - no testing was implemented at this stage
 - EmployeePage fetches an employee by id twice
+- AWS CodeBuild gets failed when building a pipeline
 
 ## Future Goals
 - Add data validation on backend
 - Implement Schema Validation on frontend
+- fix an issue with AWS pipeline build. Need to ensure that pom & yml are in located correctly
 - Refactor create and update employee functionality with axios 
 - Update delete employee functionality with axios & ensure that the list of employees gets reloaded once an employee deleted
 - Add testing for both front-end and back-end. I will use JUnit for unit testing of the backend part, Enzyme for unit testing of the front-end part and e2e testing to ensuse that all components work together as required  
