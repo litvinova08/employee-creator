@@ -14,6 +14,7 @@ Spring Boot provides a variety of features that make it easy to build, test, and
 - **TypeScript** provides strong typing, making it easier to catch errors before they make it to production.
 - **SCSS** allows to easily nest styles and write complex selectors.
 - **MySQL** provides data storage and retrieval capabilities.
+- **AWS** to deploy backend part of the application
 
 ## Compiling and running the app
 Clone the repo to your own device
