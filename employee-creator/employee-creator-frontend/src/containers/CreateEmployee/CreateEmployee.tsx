@@ -45,7 +45,7 @@ const CreateEmployee = () => {
           {...register("address")}
           placeholder="123 Example Street, Sydney, NSW, 2000"
         />
-        <h3>Contact details</h3>
+        <h3>Employee Status</h3>
         <label>What is your contract type?</label>
         <select {...register("contract")}>
           <option value="permanent">Permanent</option>
@@ -85,7 +85,7 @@ const CreateEmployee = () => {
         <label>Hours per week</label>
         <input {...register("hours")} />
 
-        <input type="submit" />
+        <input className={styles.submit} type="submit" />
       </form>
     </div>
   );
