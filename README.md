@@ -48,7 +48,7 @@ Open the backend folder in Eclipse or another integrated development environment
 - File > Import > Maven > Existing Maven Projects > Browse for the "employee-creator-backend" folder
 
 Run the app
-- You can Run the app by pressing the green play button or right clicking on gov.dcs.employeeslist and selecting > Run As > Java Application
+- You can Run the app by pressing the green play button
 
 
 ## Features
