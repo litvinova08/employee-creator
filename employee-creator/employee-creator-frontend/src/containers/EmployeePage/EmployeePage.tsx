@@ -30,11 +30,7 @@ const EmployeePage = () => {
 
   return data ? (
     <div className={styles.EmployeePage}>
-      <NavLink to={`/employee/${data.id}`}>
-        <p>
-          {data.firstName} {data.lastName}
-        </p>
-      </NavLink>
+      <NavLink to={`/employee/${data.id}`}></NavLink>
 
       <form
         onSubmit={handleSubmit((data) => {

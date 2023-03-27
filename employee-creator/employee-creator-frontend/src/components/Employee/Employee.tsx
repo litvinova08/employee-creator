@@ -50,7 +50,7 @@ const Employee = (
         <p>Contract - {employee.contract}</p>
         <p>{employee.email}</p>
       </div>
-      <div>
+      <div className={styles.Employee__ButtonBlock}>
         <button className={styles.Employee__button} onClick={routeChange}>
           Edit
         </button>

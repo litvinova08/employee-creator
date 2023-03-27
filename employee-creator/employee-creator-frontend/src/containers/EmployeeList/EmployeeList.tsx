@@ -21,8 +21,12 @@ const EmployeeList = () => {
   return (
     <div>
       <div className={styles.Instructions}>
-        <p>Please click on "Edit" to find more details of each employee.</p>
-        <button onClick={routeChange}>Add Employee</button>
+        <p className={styles.Para}>
+          Please click on "Edit" to find more details of each employee.
+        </p>
+        <button className={styles.Button} onClick={routeChange}>
+          Add Employee
+        </button>
       </div>
       {data.map((employee: any) => {
         return <Employee key={employee.id} employee={employee} />;

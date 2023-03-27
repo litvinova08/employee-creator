@@ -11,8 +11,6 @@ const CreateEmployee = () => {
 
   return (
     <div>
-      <h2 className={styles.Header}>Add an Employee</h2>
-
       <form
         onSubmit={handleSubmit((data) => {
           fetch("http://localhost:8080/employee", {

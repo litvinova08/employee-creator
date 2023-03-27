@@ -15,9 +15,14 @@
     color: $fullNameColour;
   }
 
+  &__ButtonBlock {
+    display: flex;
+  }
+
   &__button {
     position: relative;
-    display: inline-flex;
+    display: flex;
+    align-items: baseline;
     text-decoration: underline;
     font-weight: 600;
     color: $blueButton;
