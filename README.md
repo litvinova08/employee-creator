@@ -14,7 +14,7 @@ Spring Boot provides a variety of features that make it easy to build, test, and
 - **TypeScript** provides strong typing, making it easier to catch errors before they make it to production.
 - **SCSS** allows to easily nest styles and write complex selectors.
 - **MySQL** provides data storage and retrieval capabilities.
-- **AWS** to deploy the backend part of the application
+- **AWS** to deploy the backend part of the application (In progress)
 
 ## Compiling and running the app
 Clone the repo to your own device
@@ -48,7 +48,7 @@ Open the backend folder in Eclipse or another integrated development environment
 - File > Import > Maven > Existing Maven Projects > Browse for the "employee-creator-backend" folder
 
 Run the app
-- You can Run the app by pressing the green play button or right clicking on gov.dcs.employeeslist and selecting > Run As > Java Application
+- You can Run the app by pressing the green play button
 
 
 ## Features
@@ -58,6 +58,11 @@ and has clean syntax
 - React Hook Form to validate and submit forms and use Controlled components like `Controller` for dates
 - React Router for navigation and routing
 - React Date Picker to allow date input
+
+## Data Validation
+ - The firstName, lastName, email, mobileNumber and address cannot be blank.
+ - Max length of a mobile phone is 10 characters. A mobile number mustbe an Australian number.
+ - Email should be of the appropriate format. 
 
 ## Known issues
 Since this is work in progress there are many growth zones and areas that need improvement. For example: 
@@ -69,9 +74,9 @@ Since this is work in progress there are many growth zones and areas that need i
 - AWS CodeBuild gets failed when building a pipeline
 
 ## Future Goals
-- Add data validation on backend
+- Add data validation to the controller layer (EmployeeController.java)
 - Implement Schema Validation on frontend
-- fix an issue with AWS pipeline build. Need to ensure that pom & yml are in located correctly
+- Fix an issue with AWS pipeline build. Need to ensure that pom & yml are in located correctly
 - Refactor create and update employee functionality with axios 
 - Update delete employee functionality with axios & ensure that the list of employees gets reloaded once an employee deleted
 - Add testing for both front-end and back-end. I will use JUnit for unit testing of the backend part, Enzyme for unit testing of the front-end part and e2e testing to ensuse that all components work together as required  
