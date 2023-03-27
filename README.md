@@ -90,6 +90,7 @@ Since this is work in progress there are many growth zones and areas that need i
 
 ## Useful Resources
 
+- JPA Queries https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
 - React Hook Forms: https://react-hook-form.com/get-started/ 
 - React Hook Form Controller: https://react-hook-form.com/api/usecontroller/controller
 - React Router: https://reactrouter.com/en/main 
