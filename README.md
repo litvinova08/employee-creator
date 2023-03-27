@@ -78,9 +78,8 @@ Since this is work in progress there are many growth zones and areas that need i
 - Update delete employee functionality with axios & ensure that the list of employees gets reloaded once an employee deleted
 - Add testing for both front-end and back-end. I will use JUnit for unit testing of the backend part, Enzyme for unit testing of the front-end part and e2e testing to ensuse that all components work together as required  
 - Implement responsive design to ensure that users can access the app on their desktop and mobile
-- Deploy the app using Amazon service
-- Update styling to ensure the app looks well
 - Use Google's Place Autocomplete API to autocomplete an address when the user starts typing
+- Improve styling
 
 ## What I struggle with
 26.02.2023 - I experienced a CORS error due to an incorrect HttpStatus when a Controller returned an employee by Id 
