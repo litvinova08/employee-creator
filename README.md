@@ -62,7 +62,7 @@ and has clean syntax
 ## Data Validation
  - The firstName, lastName, email, mobileNumber and address cannot be blank.
  - Max length of a mobile phone is 10 characters. A mobile number mustbe an Australian number.
- - Email should be of the appropriate format. 
+ - Email should be of the appropriate format. JPA Query is used to validate whether an employee already exists in the database. 
 
 ## Known issues
 Since this is work in progress there are many growth zones and areas that need improvement. For example: 
