@@ -66,15 +66,12 @@ and has clean syntax
 
 ## Known issues
 Since this is work in progress there are many growth zones and areas that need improvement. For example: 
-- there is no validation on backend so if the user attempts to access a DB via API/Postman, no data will de validated
-- create Employee component still uses fetch to post a new employee to the database 
-- delete Employee function still uses fetch to delete an employee from the database. The page is not reloaded once the employee is deleted
-- no testing was implemented at this stage
-- EmployeePage fetches an employee by id twice
-- AWS CodeBuild gets failed when building a pipeline
+- Once an employee is deleted, the page does not get updated to reflect changes.
+- No testing was implemented at this stage.
+- EmployeePage fetches an employee by id twice.
+- AWS CodeBuild gets failed when building a pipeline.
 
 ## Future Goals
-- Add data validation to the controller layer (EmployeeController.java)
 - Implement Schema Validation on frontend
 - Fix an issue with AWS pipeline build. Need to ensure that pom & yml are in located correctly
 - Refactor create and update employee functionality with axios 
