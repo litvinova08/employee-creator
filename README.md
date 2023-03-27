@@ -14,7 +14,7 @@ Spring Boot provides a variety of features that make it easy to build, test, and
 - **TypeScript** provides strong typing, making it easier to catch errors before they make it to production.
 - **SCSS** allows to easily nest styles and write complex selectors.
 - **MySQL** provides data storage and retrieval capabilities.
-- **AWS** to deploy the backend part of the application
+- **AWS** to deploy the backend part of the application (In progress)
 
 ## Compiling and running the app
 Clone the repo to your own device
@@ -58,6 +58,10 @@ and has clean syntax
 - React Hook Form to validate and submit forms and use Controlled components like `Controller` for dates
 - React Router for navigation and routing
 - React Date Picker to allow date input
+
+## Data Validation
+ - The firstName, lastName, email, mobileNumber and address cannot be blank.
+ - Max length of a mobile phone is 10 characters. A mobile number mustbe an Australian number.
 
 ## Known issues
 Since this is work in progress there are many growth zones and areas that need improvement. For example: 
