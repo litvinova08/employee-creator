@@ -16,6 +16,10 @@ public class EmployeeService {
 
 	@Autowired
 	private EmployeeRepository repository;
+	
+	public boolean ifExists(String email) {
+		return this.repository.existsByEmail(email);
+	}
 
 	//add a new employee to a database
 	public Employee create(EmployeeCreateDTO data) {

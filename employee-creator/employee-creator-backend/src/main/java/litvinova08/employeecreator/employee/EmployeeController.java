@@ -8,7 +8,6 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,9 +30,15 @@ public class EmployeeController {
 	//add a new employee to a database
 	@PostMapping()
 	public ResponseEntity<Employee> create(@Valid @RequestBody EmployeeCreateDTO data) {
-		Employee newEmployee = this.service.create(data);
-		return new ResponseEntity<>(newEmployee, HttpStatus.CREATED);
+		boolean checkIfExists = this.service.ifExists(data.getEmail());
+		if (checkIfExists) {
+			return new ResponseEntity<>(null, HttpStatus.FOUND);
+		} else {
+			Employee newEmployee = this.service.create(data);
+			return new ResponseEntity<>(newEmployee, HttpStatus.CREATED);			
+		}
 	}
+	
 	
 	//get all employees from a database
 	@GetMapping()
