@@ -72,8 +72,9 @@ Since this is work in progress there are many growth zones and areas that need i
 - AWS CodeBuild gets failed when building a pipeline.
 
 ## Future Goals
-- Implement Schema Validation on frontend
+- Add JWT Authentication & Authorisation to allow only registereed users to add and edit employees
 - Fix an issue with AWS pipeline build. Need to ensure that pom & yml are in located correctly
+- Implement Schema Validation on frontend
 - Refactor create and update employee functionality with axios 
 - Update delete employee functionality with axios & ensure that the list of employees gets reloaded once an employee deleted
 - Add testing for both front-end and back-end. I will use JUnit for unit testing of the backend part, Enzyme for unit testing of the front-end part and e2e testing to ensuse that all components work together as required  
