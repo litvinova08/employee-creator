@@ -4,7 +4,7 @@
 This is a web application to create, list, modify and delete employees. The application consists of a spring
 RESTful API and a React Typescript frontend. The schema for
 the employee was provided in specs for this project. 
-The purpose of this project is to demonstrate my understanding of writing RESTful APIs in Java and frontend using React Typescript.
+The purpose of this project is to demonstrate my understanding of writing RESTful APIs in Java and frontend using React Typescript, using AWS to deploy applications. 
 
 ## The tech stack I used
 This is a fullstack application. I used:
@@ -57,6 +57,7 @@ and has clean syntax
 - I used React Hook Form to validate and submit forms and use Controlled components like `Controller` for dates input. React Date Picker allows date input
 - React Router allows navigation and routing
 - I implemented React table to enble users to view the list of employees as a table. I initially tested the table with MOCK_DATA that can be found in the assets. 
+- at present, the backend part of the app has been deployed with AWS. So, the user can access it here: http://employee-management-system-env.eba-v9pb39uc.us-east-1.elasticbeanstalk.com/
 
 ## Data Validation
  - The firstName, lastName, email, mobileNumber and address cannot be blank.
