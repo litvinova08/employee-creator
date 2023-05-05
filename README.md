@@ -14,8 +14,8 @@ Spring Boot provides a variety of features that make it easy to build, test, and
 - **TypeScript** provides strong typing, making it easier to catch errors before they make it to production.
 - **SCSS** allows to easily nest styles and write complex selectors.
 - **MySQL** provides data storage and retrieval capabilities.
-- **AWS** to deploy the backend part of the application (In progress)
-
+- **AWS** to deploy the application 
+- 
 ## Compiling and running the app
 Clone the repo to your own device
 ```
@@ -57,7 +57,7 @@ and has clean syntax
 - I used React Hook Form to validate and submit forms and use Controlled components like `Controller` for dates input. React Date Picker allows date input
 - React Router allows navigation and routing
 - I implemented React table to enble users to view the list of employees as a table. I initially tested the table with MOCK_DATA that can be found in the assets. 
-- at present, the backend part of the app has been deployed with AWS. So, the user can access it here: http://employee-management-system-env.eba-v9pb39uc.us-east-1.elasticbeanstalk.com/
+- At present, the backend part of the app has been deployed with AWS. So, the user can access it via the following end point: http://employee-management-system-env.eba-v9pb39uc.us-east-1.elasticbeanstalk.com/
 
 ## Data Validation
  - The firstName, lastName, email, mobileNumber and address cannot be blank.
@@ -68,12 +68,12 @@ and has clean syntax
 Since this is work in progress there are many growth zones and areas that need improvement. For example: 
 - Once an employee is deleted, the page does not get updated to reflect changes.
 - No testing was implemented at this stage.
-- EmployeePage fetches an employee by id twice.
+- EmployeePage fetches an employee by id twice which is not an efficient solution
 - AWS CodeBuild gets failed when building a pipeline.
 
 ## Future Goals
 - Add JWT Authentication & Authorisation to allow only registereed users to add and edit employees
-- Fix an issue with AWS pipeline build. Need to ensure that pom & yml are in located correctly
+- Fix an issue with AWS pipeline build. Need to ensure that pom & yml are located correctly
 - Implement Schema Validation on frontend
 - Refactor create and update employee functionality with axios 
 - Update delete employee functionality with axios & ensure that the list of employees gets reloaded once an employee deleted
