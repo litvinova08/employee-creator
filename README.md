@@ -2,9 +2,7 @@
 
 ## Introduction
 This is a web application to create, list, modify and delete employees. The application consists of a spring
-RESTful API and a React Typescript frontend. The schema for
-the employee was provided in specs for this project. 
-The purpose of this project is to demonstrate my understanding of writing RESTful APIs in Java and frontend using React Typescript, using AWS to deploy applications. 
+RESTful API and a React Typescript frontend. The purpose of this project is to demonstrate my understanding of writing RESTful APIs in Java, building frontend using React Typescript, and using AWS to deploy applications. 
 
 ## The tech stack I used
 This is a fullstack application. I used:
