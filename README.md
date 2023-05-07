@@ -23,7 +23,7 @@ and has clean syntax
 - React Router allows navigation and routing
 - I implemented React table to enble users to view the list of employees as a table. I initially tested the table with MOCK_DATA that can be found in the assets. 
 - ### AWS Deployment
-1. Firstly, I deployed the backend part of the app with AWS. She user can access employee list via the following end point: http://employee-management-system-env.eba-v9pb39uc.us-east-1.elasticbeanstalk.com/employee and invidividual employee records via http://employee-management-system-env.eba-v9pb39uc.us-east-1.elasticbeanstalk.com/employee/{id}. 
+1. Firstly, I deployed the backend part of the app with AWS. The user can access employee list via the following end point: http://employee-management-system-env.eba-v9pb39uc.us-east-1.elasticbeanstalk.com/employee and invidividual employee records via http://employee-management-system-env.eba-v9pb39uc.us-east-1.elasticbeanstalk.com/employee/{id}. 
 2. However, I would like a database to be permament. So, I created and configured a cloud database on RDS (DB endpoint: dbemployees.c7xfh2nmelwl.us-east-1.rds.amazonaws.com). Then, I connected this cloud database with the back-end Spring part of this app. Next step was to create an EC2 instance and connect to the amazon cloud server (EC2) from the local machine. Then, I built a JAR file of my project and deployed it to AWS EC2 Cloud. 
 
 ## Compiling and running the app
