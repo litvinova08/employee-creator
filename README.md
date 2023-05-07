@@ -2,9 +2,7 @@
 
 ## Introduction
 This is a web application to create, list, modify and delete employees. The application consists of a spring
-RESTful API and a React Typescript frontend. The schema for
-the employee was provided in specs for this project. 
-the purpose of this project is to demonstrate my understanding of writing RESTful APIs in Java and frontend using React Typescript.
+RESTful API and a React Typescript frontend. The purpose of this project is to demonstrate my understanding of writing RESTful APIs in Java, building frontend using React Typescript, and using AWS to deploy applications. 
 
 ## The tech stack I used
 This is a fullstack application. I used:
@@ -14,8 +12,8 @@ Spring Boot provides a variety of features that make it easy to build, test, and
 - **TypeScript** provides strong typing, making it easier to catch errors before they make it to production.
 - **SCSS** allows to easily nest styles and write complex selectors.
 - **MySQL** provides data storage and retrieval capabilities.
-- **AWS** to deploy the backend part of the application (In progress)
-
+- **AWS** to deploy the application 
+- 
 ## Compiling and running the app
 Clone the repo to your own device
 ```
@@ -50,14 +48,14 @@ Open the backend folder in Eclipse or another integrated development environment
 Run the app
 - You can Run the app by pressing the green play button
 
-
-## Features
+## Project Development Process
 - React axios to communicate with backend and make requests to an API. I used axios over fetch because it automatically converts a response to JSON
 and has clean syntax
 - I included proxy on frontend and @CrossOrigin on backend to ensure that frontend and backend can communicate
-- React Hook Form to validate and submit forms and use Controlled components like `Controller` for dates
-- React Router for navigation and routing
-- React Date Picker to allow date input
+- I used React Hook Form to validate and submit forms and use Controlled components like `Controller` for dates input. React Date Picker allows date input
+- React Router allows navigation and routing
+- I implemented React table to enble users to view the list of employees as a table. I initially tested the table with MOCK_DATA that can be found in the assets. 
+- At present, the backend part of the app has been deployed with AWS. So, the user can access it via the following end point: http://employee-management-system-env.eba-v9pb39uc.us-east-1.elasticbeanstalk.com/
 
 ## Data Validation
  - The firstName, lastName, email, mobileNumber and address cannot be blank.
@@ -68,12 +66,12 @@ and has clean syntax
 Since this is work in progress there are many growth zones and areas that need improvement. For example: 
 - Once an employee is deleted, the page does not get updated to reflect changes.
 - No testing was implemented at this stage.
-- EmployeePage fetches an employee by id twice.
+- EmployeePage fetches an employee by id twice which is not an efficient solution
 - AWS CodeBuild gets failed when building a pipeline.
 
 ## Future Goals
 - Add JWT Authentication & Authorisation to allow only registereed users to add and edit employees
-- Fix an issue with AWS pipeline build. Need to ensure that pom & yml are in located correctly
+- Fix an issue with AWS pipeline build. Need to ensure that pom & yml are located correctly
 - Implement Schema Validation on frontend
 - Refactor create and update employee functionality with axios 
 - Update delete employee functionality with axios & ensure that the list of employees gets reloaded once an employee deleted
@@ -85,13 +83,14 @@ Since this is work in progress there are many growth zones and areas that need i
 ## What I struggle with
 26.02.2023 - I experienced a CORS error due to an incorrect HttpStatus when a Controller returned an employee by Id 
 
-## Useful Resources
+## Useful Resources related to this project
 
 - JPA Queries https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
 - React Hook Forms: https://react-hook-form.com/get-started/ 
 - React Hook Form Controller: https://react-hook-form.com/api/usecontroller/controller
 - React Router: https://reactrouter.com/en/main 
 - React Date Picker: https://www.npmjs.com/package/react-datepicker 
+- React Table: https://www.npmjs.com/package/react-table
 - Schema Validation: https://react-hook-form.com/get-started/#SchemaValidation
 - JUnit: https://spring.io/guides/gs/testing-web/
 - Enzyme: https://enzymejs.github.io/enzyme/
