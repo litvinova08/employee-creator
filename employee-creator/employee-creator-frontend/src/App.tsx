@@ -11,19 +11,20 @@ import Header from "./components/Header/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { QueryClientProvider, QueryClient } from "react-query";
+import Table from "./containers/Table/Table";
 
 const queryClient = new QueryClient();
 
 function App() {
-  // const [employees, setEmployees] = useState([]);
+  const [employees, setEmployees] = useState([]);
 
-  // useEffect(() => {
-  //   axios.get("http://localhost:8080/employee").then((res) => {
-  //     const emps = res.data;
-  //     setEmployees(emps);
-  //     console.log(emps);
-  //   });
-  // }, []);
+  useEffect(() => {
+    axios.get("http://localhost:8080/employee").then((res) => {
+      const emps = res.data;
+      setEmployees(emps);
+      console.log(emps);
+    });
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -35,6 +36,10 @@ function App() {
             <Route path="/employee" element={<EmployeeList />} />
             <Route path="/add-employee" element={<CreateEmployee />}></Route>
             <Route path="/employee/:id" element={<EmployeePage />}></Route>
+            <Route
+              path="table"
+              element={<Table employees={employees} />}
+            ></Route>
           </Routes>
         </BrowserRouter>
       </div>

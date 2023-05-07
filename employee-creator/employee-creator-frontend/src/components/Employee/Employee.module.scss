@@ -1,5 +1,9 @@
 @import "../../assets/styles/palette.module.scss";
 
+* {
+  font-size: 30px;
+}
+
 .Employee {
   margin-left: auto;
   margin-right: auto;
@@ -13,6 +17,7 @@
   &__fullName {
     font-weight: bold;
     color: $fullNameColour;
+    // font-size: 30px;
   }
 
   &__ButtonBlock {

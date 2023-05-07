@@ -3,6 +3,7 @@ import axios from "axios";
 
 export default function fetchAllEmployees() {
   return axios.get("http://localhost:8080/employee").then((res) => res.data);
+  // return axios.get("/api/employee").then((res) => res.data);
 }
 
 // export function fetchById(id: string) {
