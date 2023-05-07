@@ -11,5 +11,5 @@ phases:
       # - mvn package
 artifacts:
   files:
-    - employee-creator-backend/employee-creator-0.0.1-SNAPSHOT.jar
+    - employee-creator-backend/target/employee-creator-0.0.1-SNAPSHOT.jar
   discard-paths: yes
