@@ -13,7 +13,20 @@ Spring Boot provides a variety of features that make it easy to build, test, and
 - **SCSS** allows to easily nest styles and write complex selectors.
 - **MySQL** provides data storage and retrieval capabilities.
 - **AWS** to deploy the application 
-- 
+
+
+## Project Development Process
+- React axios to communicate with backend and make requests to an API. I used axios over fetch because it automatically converts a response to JSON
+and has clean syntax
+- I included proxy on frontend and @CrossOrigin on backend to ensure that frontend and backend can communicate
+- I used React Hook Form to validate and submit forms and use Controlled components like `Controller` for dates input. React Date Picker allows date input
+- React Router allows navigation and routing
+- I implemented React table to enble users to view the list of employees as a table. I initially tested the table with MOCK_DATA that can be found in the assets. 
+### AWS Deployment
+Firstly, I deployed the backend part of the app with AWS. She user can access employee list via the following end point: http://employee-management-system-env.eba-v9pb39uc.us-east-1.elasticbeanstalk.com/employee and invidividual employee records via http://employee-management-system-env.eba-v9pb39uc.us-east-1.elasticbeanstalk.com/employee/{id}. 
+However, I would like the whole app to be deployed with AWS and a database to be permament. So, I created and configureed a cloud database on RDS (DB endpoint: dbemployees.c7xfh2nmelwl.us-east-1.rds.amazonaws.com). Then, I connected this cloud database with the back-end Spring part of this app. 
+Next step was to create an EC2 instance and connect to the amazon cloud server (EC2) from the local machine. Then, I built a JAR file of my project and deployed it to AWS EC2 Cloud. 
+
 ## Compiling and running the app
 Clone the repo to your own device
 ```
@@ -47,18 +60,6 @@ Open the backend folder in Eclipse or another integrated development environment
 
 Run the app
 - You can Run the app by pressing the green play button
-
-## Project Development Process
-- React axios to communicate with backend and make requests to an API. I used axios over fetch because it automatically converts a response to JSON
-and has clean syntax
-- I included proxy on frontend and @CrossOrigin on backend to ensure that frontend and backend can communicate
-- I used React Hook Form to validate and submit forms and use Controlled components like `Controller` for dates input. React Date Picker allows date input
-- React Router allows navigation and routing
-- I implemented React table to enble users to view the list of employees as a table. I initially tested the table with MOCK_DATA that can be found in the assets. 
-### AWS Deployment
-Firstly, I deployed the backend part of the app with AWS. She user can access employee list via the following end point: http://employee-management-system-env.eba-v9pb39uc.us-east-1.elasticbeanstalk.com/employee and invidividual employee records via http://employee-management-system-env.eba-v9pb39uc.us-east-1.elasticbeanstalk.com/employee/{id}. 
-However, I would like the whole app to be deployed with AWS and a database to be permament. So, I created and configureed a cloud database on RDS (DB endpoint: dbemployees.c7xfh2nmelwl.us-east-1.rds.amazonaws.com). Then, I connected this cloud database with the back-end Spring part of this app. 
-Next step was to create an EC2 instance and connect to the amazon cloud server (EC2) from the local machine. Then, I built a JAR file of my project and deployed it to AWS EC2 Cloud. 
 
 ## Data Validation
  - The firstName, lastName, email, mobileNumber and address cannot be blank.
