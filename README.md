@@ -55,7 +55,10 @@ and has clean syntax
 - I used React Hook Form to validate and submit forms and use Controlled components like `Controller` for dates input. React Date Picker allows date input
 - React Router allows navigation and routing
 - I implemented React table to enble users to view the list of employees as a table. I initially tested the table with MOCK_DATA that can be found in the assets. 
-- At present, the backend part of the app has been deployed with AWS. So, the user can access it via the following end point: http://employee-management-system-env.eba-v9pb39uc.us-east-1.elasticbeanstalk.com/
+### AWS Deployment
+Firstly, I deployed the backend part of the app with AWS. She user can access employee list via the following end point: http://employee-management-system-env.eba-v9pb39uc.us-east-1.elasticbeanstalk.com/employee and invidividual employee records via http://employee-management-system-env.eba-v9pb39uc.us-east-1.elasticbeanstalk.com/employee/{id}. 
+However, I would like the whole app to be deployed with AWS and a database to be permament. So, I created and configureed a cloud database on RDS (DB endpoint: dbemployees.c7xfh2nmelwl.us-east-1.rds.amazonaws.com). Then, I connected this cloud database with the back-end Spring part of this app. 
+Next step was to create an EC2 instance and connect to the amazon cloud server (EC2) from the local machine. Then, I built a JAR file of my project and deployed it to AWS EC2 Cloud. 
 
 ## Data Validation
  - The firstName, lastName, email, mobileNumber and address cannot be blank.
@@ -81,7 +84,8 @@ Since this is work in progress there are many growth zones and areas that need i
 - Improve styling
 
 ## What I struggle with
-26.02.2023 - I experienced a CORS error due to an incorrect HttpStatus when a Controller returned an employee by Id 
+- I experienced a CORS error due to an incorrect HttpStatus when a Controller returned an employee by Id 
+- AWS deployment did not work from the first attempt. Source stage succeeded, but build failed because file path if buildspec.yml was incorrect.  
 
 ## Useful Resources related to this project
 
@@ -91,6 +95,8 @@ Since this is work in progress there are many growth zones and areas that need i
 - React Router: https://reactrouter.com/en/main 
 - React Date Picker: https://www.npmjs.com/package/react-datepicker 
 - React Table: https://www.npmjs.com/package/react-table
+- RDS:
+- EC2: Virtual Servers in Cloud
 - Schema Validation: https://react-hook-form.com/get-started/#SchemaValidation
 - JUnit: https://spring.io/guides/gs/testing-web/
 - Enzyme: https://enzymejs.github.io/enzyme/
