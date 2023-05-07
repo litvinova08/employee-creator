@@ -99,11 +99,12 @@ Since this is work in progress there are many growth zones and areas that need i
 - RDS:
 - EC2: Virtual Servers in Cloud
 - Schema Validation: https://react-hook-form.com/get-started/#SchemaValidation
+- Lombok: 
 - JUnit: https://spring.io/guides/gs/testing-web/
 - Enzyme: https://enzymejs.github.io/enzyme/
 - Google's Places Autocomplete API: https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete
 
-application.properties
+application.properties (for a local database)
 ```
 spring.datasource.url=jdbc:mysql://localhost:3306/YOUR_MYSQL_DB_NAME
 spring.datasource.username=root
