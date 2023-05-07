@@ -4,12 +4,12 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - mvn test
+      # - mvn test
   post_build:
     commands:
       - echo Build completed on `date`
       - mvn package
 artifacts:
   files:
-    - employee-creator-backend/target/employee-creator-0.0.1-SNAPSHOT.jar
+    - employee-creator-backend/employee-creator-0.0.1-SNAPSHOT.jar
   discard-paths: yes
